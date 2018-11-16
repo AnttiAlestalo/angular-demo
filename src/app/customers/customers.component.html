@@ -1,0 +1,25 @@
+<div class="cssPageBody">
+  <table id="idCustomersTable" class="cssTable">
+    <caption>
+      Customers <span class="cssSmall">()</span>
+      <input name="fFilterName" type="text" placeholder="Search" value="" onChange="" />
+      <button type="button" class="cssButDef" onClick="">Add new</button>
+    </caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone number</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jsonCustomer of aCustomers">
+        <td>{{jsonCustomer.fName}}</td>
+        <td>{{jsonCustomer.fEmail}}</td>
+        <td>{{jsonCustomer.fPhone}}</td>
+        <td>{{jsonCustomer.fCountry}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
