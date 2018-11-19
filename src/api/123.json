@@ -1,0 +1,16 @@
+{
+  "id": "1D7B1DBA8F7FD932C2258329003DE51E",
+  "fFirstName": "Matt",
+  "fLastName": "Damon",
+  "fGender": "Male",
+  "fCompany": "",
+  "fStreetAddress": "Sunset Bouleward 55",
+  "fPostCode": "12345",
+  "fCity": "Los Angeles",
+  "fCountry": "United States",
+  "fEmail": "matt@hollywood.com",
+  "fPhone": "1234567",
+  "fContactDate": "2018-10-05",
+  "fCustomerId": "112233",
+  "fAddInfo": "Cool"
+}

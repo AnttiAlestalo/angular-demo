@@ -1,7 +1,7 @@
 <div class="cssPageBody">
   <table id="idCustomersTable" class="cssTable">
     <caption>
-      Customers <span class="cssSmall">()</span>
+      Customers <span class="cssSmall">({{aCustomers.length}})</span>
       <input name="fFilterName" type="text" placeholder="Search" value="" onChange="" />
       <button type="button" class="cssButDef" onClick="">Add new</button>
     </caption>
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let jsonCustomer of aCustomers">
+      <tr *ngFor="let jsonCustomer of aCustomers" (click)='jsReadCustomer(jsonCustomer.id)'>
         <td>{{jsonCustomer.fName}}</td>
         <td>{{jsonCustomer.fEmail}}</td>
         <td>{{jsonCustomer.fPhone}}</td>
