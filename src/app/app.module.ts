@@ -9,22 +9,24 @@ import { CustomersComponent } from './customers/customers.component';
 import { ReportsComponent } from './reports/reports.component';
 import { AppheaderComponent } from './appheader/appheader.component';
 import { ReadcustomerComponent } from './readcustomer/readcustomer.component';
+import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CustomersComponent,
-    ReportsComponent,
-    AppheaderComponent,
-    ReadcustomerComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        CustomersComponent,
+        ReportsComponent,
+        AppheaderComponent,
+        ReadcustomerComponent,
+        EditcustomerComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
 #idCustomersTable tr {cursor: pointer}
 #idCustomersTable {
-  width: 100%;
-  min-width: 520px;
+    width: 100%;
+    min-width: 520px;
 }
 #idCustomersTable caption .cssSmall {
-  font-size: 16px;
-  padding-left: 20px;
+    font-size: 16px;
+    padding-left: 20px;
 }

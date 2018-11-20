@@ -1,28 +1,28 @@
 .cssPageHeader {
-  width: 556px;
+    width: 556px;
 }
 .cssFormButtons {
-  width: 556px;
+    width: 556px;
 }
 .cssPageHeader span {
-  float: right;
+    float: right;
 }
 .cssPageHeader span button {
-  margin-left: 12px;
+    margin-left: 12px;
 }
 fieldset {
-  width: 556px;
-  margin-bottom: 10px;
+    width: 556px;
+    margin-bottom: 10px;
 }
 #idFormPerson .cssFormRow > div:nth-child(1) {
-  width: 180px;
+    width: 180px;
 }
 #idFormPerson .cssFormRow > div:nth-child(2) {
-  width: 350px;
+    width: 350px;
 }
 #idFormPerson input[type="text"], #idFormPerson select, #idFormPerson textarea {
-  width: 100%;
+    width: 100%;
 }
 .cssFieldNumber, #idFormPerson input[name="fPostCode"] {
-  width: 120px !important;
+    width: 120px !important;
 }
