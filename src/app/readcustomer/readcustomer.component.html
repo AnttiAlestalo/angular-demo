@@ -1,8 +1,8 @@
 <div class="cssPageHeader">
-    Customer <span><button type="button" onClick="" class="cssButDef">Edit</button></span>
+    Customer <span><button type="button" class="cssButDef" (click)="jsEditCustomer(jsonCustomer.id)">Edit</button></span>
 </div>
 <div class="cssPageBody" *ngIf='jsonCustomer'>
-    <fieldset id="idFormPerson">
+    <fieldset id="idFormCustomer">
         <div class="cssFormRow"><div>First name:</div><div>{{jsonCustomer.fFirstName}}</div></div>
         <div class="cssFormRow"><div>Last name:</div><div>{{jsonCustomer.fLastName}}</div></div>
         <div class="cssFormRow"><div>Gender:</div><div>{{jsonCustomer.fGender}}</div></div>

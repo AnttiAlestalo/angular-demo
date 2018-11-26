@@ -1,0 +1,29 @@
+.cssPageHeader {
+    width: 556px;
+}
+.cssFormButtons {
+    width: 556px;
+}
+.cssPageHeader span {
+    float: right;
+}
+.cssPageHeader span button {
+    margin-left: 12px;
+}
+fieldset {
+    width: 556px;
+    margin-bottom: 10px;
+}
+#idFormCustomer .cssFormRow > div:nth-child(1) {
+    width: 180px;
+}
+#idFormCustomer .cssFormRow > div:nth-child(2) {
+    width: 350px;
+}
+#idFormCustomer input[type="text"], #idFormCustomer select, #idFormCustomer textarea {
+    width: 100%;
+}
+.cssFieldNumber, #idFormCustomer input[name="fPostCode"] {
+    width: 120px !important;
+}
+

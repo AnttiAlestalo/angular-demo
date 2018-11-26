@@ -19,17 +19,18 @@ export class ReadcustomerComponent implements OnInit {
     jsonCustomer: ICustomer1 | undefined;
 
     ngOnInit() {
-        const param = this.route.snapshot.paramMap.get('id');
-        if (param) {
-            const id = +param;
-            this.getCustomer(id);
-        }
+        const strId = this.route.snapshot.paramMap.get('id');
+        this.getCustomer(strId);
     }
 
-    getCustomer(id: number) {
+    getCustomer(id: string) {
         this.customerService.getCustomer(id).subscribe(
             customer => this.jsonCustomer = customer,
             error => this.errorMessage = <any>error);
+    }
+
+    jsEditCustomer(strId): void {
+        this.router.navigate(['/editcustomer/' + strId]);
     }
 
 }

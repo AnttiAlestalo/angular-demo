@@ -1,3 +1,106 @@
-<p>
-    Edit customer works!
-</p>
+<form class="cssForm" id="idFormCustomer" novalidate (ngSubmit)="jsSaveCustomer(idFormCustomer)" #idFormCustomer="ngForm">
+    <div class="cssPageHeader">
+        Customer
+        <span>
+            <button type="submit" class="cssButOK cssButSave">Save</button>
+            <button *ngIf='jsonCustomer.id' type="button" class="cssButDanger" (click)="jsDeleteCustomer(jsonCustomer.id)">Delete</button>
+            <button type="button" class="cssButWarn" (click)="jsCancel()">Cancel</button>
+        </span>
+    </div>
+    <div class="cssPageBody">
+        <fieldset>
+
+            <div class="cssFormRow">
+                <div>First name: <i class="cssRequired"></i></div>
+                <div>
+                    <input autoFocus name="fFirstName" type="text" required
+                           [(ngModel)]="jsonCustomer.fFirstName"
+                           #fFirstNameVar="ngModel"
+                           [ngClass]="{'cssInvalid': idFormCustomer.submitted && !fFirstNameVar.valid }"
+                    />
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Last name: <i class="cssRequired"></i></div>
+                <div>
+                    <input name="fLastName" type="text" required
+                           [(ngModel)]="jsonCustomer.fLastName"
+                           #fLastNameVar="ngModel"
+                           [ngClass]="{'cssInvalid': idFormCustomer.submitted && !fLastNameVar.valid }"
+                    />
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Gender: <i class="cssRequired"></i></div>
+                <div class="cssDivRadio" [ngClass]="{'cssInvalid': (idFormCustomer.submitted && idFormCustomer.controls.fGender.value === undefined) }">
+                    <label><input type="radio" value="Male" name="fGender" [(ngModel)]="jsonCustomer.fGender" />Male</label>
+                    <label><input type="radio" value="Female" name="fGender" [(ngModel)]="jsonCustomer.fGender" />Female</label>
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Company:</div><div><input name="fCompany" type="text" [(ngModel)]="jsonCustomer.fCompany" /></div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Street address:</div>
+                <div>
+                    <input name="fStreetAddress" type="text" [(ngModel)]="jsonCustomer.fStreetAddress" />
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Post code:</div><div><input name="fPostCode" type="text" [(ngModel)]="jsonCustomer.fPostCode" /></div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>City:</div><div><input name="fCity" type="text" [(ngModel)]="jsonCustomer.fCity" /></div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Country:</div>
+                <div>
+                    <select name="fCountry" [(ngModel)]="jsonCustomer.fCountry">
+                        <option value=""></option>
+                        <option value="Finland">Finland</option>
+                        <option value="Sweden">Sweden</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Email address: <i class="cssRequired"></i></div>
+                <div>
+                    <input name="fEmail" type="text" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                           [(ngModel)]="jsonCustomer.fEmail"
+                           #fEmailVar="ngModel"
+                           [ngClass]="{'cssInvalid': idFormCustomer.submitted && !fEmailVar.valid }"
+                    />
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Phone number:</div><div><input name="fPhone" type="text" [(ngModel)]="jsonCustomer.fPhone" /></div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Last contacted:</div><div><input name="fContactDate" type="text" [(ngModel)]="jsonCustomer.fContactDate" /></div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Additional info:</div><div><textarea name="fAddInfo" [(ngModel)]="jsonCustomer.fAddInfo"></textarea></div>
+            </div>
+            <input name="id" type="hidden" [(ngModel)]="jsonCustomer.id" />
+        </fieldset>
+
+        <div class="cssFormButtons">
+            <span>
+                <button type="submit" class="cssButOK cssButSave">Save</button>
+                <button *ngIf='jsonCustomer.id' type="button" class="cssButDanger" (click)="jsDeleteCustomer(jsonCustomer.id)">Delete</button>
+                <button type="button" class="cssButWarn" (click)="jsCancel()">Cancel</button>
+            </span>
+        </div>
+    </div>
+</form>
