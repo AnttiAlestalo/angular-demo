@@ -23,9 +23,11 @@
     font-size: 16px;
     border-top: solid 1px #999;
     border-bottom: solid 1px #999;
+    font-weight: 500;
 }
-.cssSortIcon {
+.cssTable th .fa {
     margin-left: 8px;
+    color: green;
 }
 .cssTable tbody tr:hover {
     background-color: #DBEAFF;

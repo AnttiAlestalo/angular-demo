@@ -11,6 +11,7 @@ export interface ICustomer1 {
     fEmail: string;
     fPhone: string;
     fContactDate: string;
+    fCustomerId: string;
     fAddInfo: string;
 }
 

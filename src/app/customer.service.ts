@@ -20,6 +20,14 @@ export class CustomerService {
         );
     }
 
+    getCountries(): Observable<[]> {
+        const strUrl = 'api/countries.json';
+        return this.http.get<[]>(strUrl).pipe(
+            tap(data => console.log('Get: ' + strUrl)),
+            catchError(this.handleError)
+        );
+    }
+
     getCustomer(strId) {
         const strUrl = window.location.href.indexOf('localhost') > 0 ? 'api/123.json' : 'http://www.aad.fi/aad/react1.nsf/vwCustomer/' + strId + '?OpenDocument&' + Date.now();
         return this.http.get<ICustomer1>(strUrl).pipe(
@@ -32,7 +40,7 @@ export class CustomerService {
         const strUrl = (jsonCustomer.id === undefined ? 'http://www.aad.fi/aad/react1.nsf/frmCustomer?CreateDocument' : 'http://www.aad.fi/aad/react1.nsf/0/' + jsonCustomer.id + '?SaveDocument');
 
         const strUrlParam = Object.keys(jsonCustomer).map(function(strKey) {
-            return encodeURIComponent(strKey) + '=' + encodeURIComponent(jsonCustomer[strKey] === undefined ? '' : jsonCustomer[strKey]);
+            return encodeURIComponent(strKey) + '=' + encodeURIComponent((jsonCustomer[strKey] === undefined || jsonCustomer[strKey] === null) ? '' : jsonCustomer[strKey]);
         }).join('&');
 
         // @ts-ignore
@@ -43,6 +51,9 @@ export class CustomerService {
     }
 
     deleteCustomer(strId) {
+        if (!confirm('Are you sure you want to delete this customer?')) {
+            return;
+        }
         const strUrl = 'http://www.aad.fi/aad/react1.nsf/vwCustomers/' + strId + '?DeleteDocument&' + Date.now();
         // @ts-ignore
         return this.http.get<ICustomer1>(strUrl, {responseType: 'text'}).pipe(
@@ -61,6 +72,5 @@ export class CustomerService {
         console.error(strErrorMsg);
         return throwError(strErrorMsg);
     }
-
 
 }

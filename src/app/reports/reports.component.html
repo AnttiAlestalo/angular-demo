@@ -1,3 +1,22 @@
-<p>
-  reports works!
-</p>
+<div class="cssPageHeader">Customers by country</div>
+<div class="cssPageBody">
+
+    <canvas height="80" baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [chartType]="'bar'">
+    </canvas>
+    <br>
+    <br>
+    <div class="cssPageHeader">Customers by gender</div>
+
+    <div style="text-align: left">
+        <canvas height="80" baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="'pie'">
+        </canvas>
+    </div>
+
+</div>

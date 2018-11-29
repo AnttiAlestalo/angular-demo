@@ -3,7 +3,7 @@
         Customer
         <span>
             <button type="submit" class="cssButOK cssButSave">Save</button>
-            <button *ngIf='jsonCustomer.id' type="button" class="cssButDanger" (click)="jsDeleteCustomer(jsonCustomer.id)">Delete</button>
+            <button *ngIf='jsonCustomer.id' type="button" class="cssButDanger" (click)="this.modalService.open('idPopup2')">Delete</button>
             <button type="button" class="cssButWarn" (click)="jsCancel()">Cancel</button>
         </span>
     </div>
@@ -62,11 +62,9 @@
             <div class="cssFormRow">
                 <div>Country:</div>
                 <div>
-                    <select name="fCountry" [(ngModel)]="jsonCustomer.fCountry">
-                        <option value=""></option>
-                        <option value="Finland">Finland</option>
-                        <option value="Sweden">Sweden</option>
-                    </select>
+                    <ng-select name="fCountry" [(ngModel)]="jsonCustomer.fCountry">
+                        <ng-option *ngFor="let country of jsonCountries" [value]="country">{{country}}</ng-option>
+                    </ng-select>
                 </div>
             </div>
 
@@ -86,7 +84,14 @@
             </div>
 
             <div class="cssFormRow">
-                <div>Last contacted:</div><div><input name="fContactDate" type="text" [(ngModel)]="jsonCustomer.fContactDate" /></div>
+                <div>Last contacted:</div>
+                <div>
+                    <ng-datepicker name="fContactDate" [(ngModel)]="jsonCustomer.fContactDate" [options]="{displayFormat: 'DD.MM.YYYY', firstCalendarDay: 1, addClass: 'cssDate'}"></ng-datepicker>
+                </div>
+            </div>
+
+            <div class="cssFormRow">
+                <div>Customer id:</div><div><input name="fCustomerId" type="text" [(ngModel)]="jsonCustomer.fCustomerId" /></div>
             </div>
 
             <div class="cssFormRow">
@@ -98,9 +103,24 @@
         <div class="cssFormButtons">
             <span>
                 <button type="submit" class="cssButOK cssButSave">Save</button>
-                <button *ngIf='jsonCustomer.id' type="button" class="cssButDanger" (click)="jsDeleteCustomer(jsonCustomer.id)">Delete</button>
+                <button *ngIf='jsonCustomer.id' type="button" class="cssButDanger" (click)="this.modalService.open('idPopup2')">Delete</button>
                 <button type="button" class="cssButWarn" (click)="jsCancel()">Cancel</button>
             </span>
         </div>
     </div>
 </form>
+
+<jw-modal id="idPopup1">
+    <div class="cssPopupHeader">Error</div>
+    <div class="cssPopupBody">Please fill required fields!</div>
+    <div class="cssPopupFooter"><button (click)="this.modalService.close('idPopup1')" class="cssButOK">OK</button></div>
+</jw-modal>
+
+<jw-modal id="idPopup2">
+    <div class="cssPopupHeader">Confirm</div>
+    <div class="cssPopupBody">Are you sure you want to delete this customer?</div>
+    <div class="cssPopupFooter">
+        <button (click)="jsDeleteCustomer(jsonCustomer.id)" class="cssButDanger">Delete</button> &nbsp;
+        <button (click)="this.modalService.close('idPopup2')" class="cssButDef">Cancel</button>
+    </div>
+</jw-modal>

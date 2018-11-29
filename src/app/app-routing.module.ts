@@ -7,13 +7,13 @@ import { ReadcustomerComponent} from './readcustomer/readcustomer.component';
 import { EditcustomerComponent} from './editcustomer/editcustomer.component';
 
 const routes: Routes = [
-    {path: 'home', component: HomeComponent},
+    {path: 'index.html', component: HomeComponent},
     {path: 'customers', component: CustomersComponent},
     {path: 'readcustomer/:id', component: ReadcustomerComponent},
     {path: 'editcustomer/:id', component: EditcustomerComponent},
     {path: 'reports', component: ReportsComponent},
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
-    {path: '**', redirectTo: 'home', pathMatch: 'full'}
+    {path: '', redirectTo: 'index.html', pathMatch: 'full'},
+    {path: '**', redirectTo: 'index.html', pathMatch: 'full'}
 ];
 
 @NgModule({

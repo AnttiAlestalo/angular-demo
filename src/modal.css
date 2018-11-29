@@ -1,0 +1,59 @@
+﻿jw-modal {
+    display: none;
+}
+jw-modal .jw-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -200px;
+    z-index: 1000;
+    overflow: auto;
+}
+jw-modal .jw-modal .jw-modal-body {
+    background: #fff;
+
+}
+jw-modal .jw-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.2;
+    z-index: 900;
+}
+body.jw-modal-open {
+    overflow: hidden;
+}
+.jw-modal-body {
+    width: 400px;
+    height: 152px;
+    border-radius: 8px;
+    border: 1px solid #d43f3a;
+}
+.cssPopupHeader {
+    height: 50px;
+    padding: 10px 15px;
+    background-color: #d9534f;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 20px;
+}
+
+.cssPopupBody {
+    height: 50px;
+    padding: 10px 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.cssPopupFooter {
+    padding: 10px 15px;
+    height: 50px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    text-align: right;
+}

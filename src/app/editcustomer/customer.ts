@@ -11,6 +11,7 @@ export class Customer {
         public fCountry: string,
         public fEmail: string,
         public fPhone: string,
+        public fCustomerId: string,
         public fContactDate: string,
         public fAddInfo: string,
     ) {}

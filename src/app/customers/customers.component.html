@@ -2,19 +2,31 @@
     <table id="idCustomersTable" class="cssTable">
         <caption>
             Customers <span class="cssSmall">({{aCustomers.length}})</span>
-            <input name="fFilterName" type="text" placeholder="Search" value="" onChange="" />
+            <input name="fSearch" type="text" placeholder="Search" value="" [(ngModel)]="fSearch" />
             <button type="button" class="cssButDef" (click)="jsEditCustomer('0')">Add new</button>
         </caption>
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone number</th>
-            <th>Country</th>
+            <th (click)="jsSortBy('fName')">Name
+                <fa *ngIf='strSortBy === "fName" && !bSortDes' name="long-arrow-down"></fa>
+                <fa *ngIf='strSortBy === "fName" && bSortDes' name="long-arrow-up"></fa>
+            </th>
+            <th (click)="jsSortBy('fEmail')">Email
+                <fa *ngIf='strSortBy === "fEmail" && !bSortDes' name="long-arrow-down"></fa>
+                <fa *ngIf='strSortBy === "fEmail" && bSortDes' name="long-arrow-up"></fa>
+            </th>
+            <th (click)="jsSortBy('fPhone')">Phone number
+                <fa *ngIf='strSortBy === "fPhone" && !bSortDes' name="long-arrow-down"></fa>
+                <fa *ngIf='strSortBy === "fPhone" && bSortDes' name="long-arrow-up"></fa>
+            </th>
+            <th (click)="jsSortBy('fCountry')">Country
+                <fa *ngIf='strSortBy === "fCountry" && !bSortDes' name="long-arrow-down"></fa>
+                <fa *ngIf='strSortBy === "fCountry" && bSortDes' name="long-arrow-up"></fa>
+            </th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let jsonCustomer of aCustomers" (click)='jsReadCustomer(jsonCustomer.id)'>
+        <tr *ngFor="let jsonCustomer of aSearchCustomers" (click)='jsReadCustomer(jsonCustomer.id)'>
             <td>{{jsonCustomer.fName}}</td>
             <td>{{jsonCustomer.fEmail}}</td>
             <td>{{jsonCustomer.fPhone}}</td>

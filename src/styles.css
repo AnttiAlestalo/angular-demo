@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+/* @import "~ng-pick-datetime/assets/style/picker.min.css"; */
+
 html {
     height: 100%;
 }
@@ -83,13 +86,17 @@ input[type="text"], select, textarea {
     font-size: 16px;
     outline: none;
 }
+select {
+    padding-left: 4px;
+}
 textarea {
     font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
     resize: none;
     height: 70px;
 }
-.react-datepicker-wrapper {
-    width: 120px;
+.cssDate {
+    width: 120px !important;
+    border: solid 1px #aaa !important;
 }
 .cssDivRadio {
     border: solid 1px #fff;

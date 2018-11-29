@@ -25,7 +25,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/tables.css"
+              "src/tables.css",
+              "src/modal.css"
             ],
             "scripts": []
           },
