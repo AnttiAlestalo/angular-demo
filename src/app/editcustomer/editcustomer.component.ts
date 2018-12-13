@@ -16,20 +16,9 @@ import { DatepickerOptions } from 'ng2-datepicker';
 export class EditcustomerComponent implements OnInit {
 
     options: DatepickerOptions = {
-        minYear: 1970,
-        maxYear: 2030,
         displayFormat: 'DD.MM.YYYY',
-        barTitleFormat: 'DD.MM.YYYY',
-        dayNamesFormat: 'dd',
-        firstCalendarDay: 1, // 0 - Sunday, 1 - Monday
-        minDate: new Date(Date.now()), // Minimal selectable date
-        maxDate: new Date(Date.now()),  // Maximal selectable date
-        barTitleIfEmpty: 'Click to select a date',
-        placeholder: 'Click to select a date', // HTML input placeholder attribute (default: '')
-        addClass: 'form-control', // Optional, value to pass on to [ngClass] on the input field
-        addStyle: {}, // Optional, value to pass to [ngStyle] on the input field
-        fieldId: 'my-date-picker', // ID to assign to the input field. Defaults to datepicker-<counter>
-        useEmptyBarTitle: false, // Defaults to true. If set to false then barTitleIfEmpty will be disregarded and a date will always be shown
+        firstCalendarDay: 1,
+        addClass: 'cssDate',
     };
 
     constructor(
@@ -83,12 +72,28 @@ export class EditcustomerComponent implements OnInit {
         }
     }
 
+    jsRight(str: string, n: number): string {
+        if (str === undefined || n <= 0) {
+            return '';
+        } else if (n > str.length) {
+            return str;
+        } else {
+            const iLen = String(str).length;
+            return str.substring(iLen, iLen - n);
+        }
+    }
+
     jsSaveCustomer(jsonCustomerForm: NgForm) {
         if (jsonCustomerForm.form.invalid) {
             this.modalService.open('idPopup1');
             return;
         }
-
+        if (typeof jsonCustomerForm.value.fContactDate === 'object') {
+            const strDay = (this.jsRight('0' + jsonCustomerForm.value.fContactDate.getDate(), 2));
+            const strMonth = (this.jsRight('0' + (jsonCustomerForm.value.fContactDate.getMonth() + 1), 2));
+            const strYear = jsonCustomerForm.value.fContactDate.getFullYear().toString();
+            jsonCustomerForm.value.fContactDate = strYear + '-' + strMonth + '-' + strDay;
+        }
         this.customerService.saveCustomer(jsonCustomerForm.value).subscribe(
             strResponse => (
                 this.jsReadCustomer(this.jsLeft(this.jsStrRight(JSON.stringify(strResponse), '^OK^'), 32))

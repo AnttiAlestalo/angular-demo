@@ -9,6 +9,16 @@ export class AppheaderComponent implements OnInit {
 
     constructor() { }
 
+    bShowMenu = false;
+
+    jsToggleMenu() {
+        this.bShowMenu = !this.bShowMenu;
+    }
+
+    jsChangeLang(strLand) {
+        this.bShowMenu = !this.bShowMenu;
+    }
+
     ngOnInit() {
     }
 

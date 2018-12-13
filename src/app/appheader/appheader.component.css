@@ -58,3 +58,31 @@
 .cssNav1A {
     background-color: #121f6b;
 }
+
+#idSettingsIcon {
+    font-size: 24px;
+    color: #fff;
+    position: absolute;
+    top: 42px;
+    right: 20px;
+    cursor: pointer;
+}
+.cssSettingsMenu {
+    background-color: #fff;
+    float: right;
+    margin-top: 35px;
+    margin-right: 20px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    width: 150px;
+}
+.cssSettingsMenu div {
+    padding: 4px 8px;
+}
+.cssSettingsMenuOption {
+    border-top: solid 1px #ccc;
+}
+.cssSettingsMenuOption:hover {
+    background-color: #DBEAFF;
+    cursor: pointer;
+}

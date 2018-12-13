@@ -8,5 +8,11 @@
             <a routerLinkActive='cssNav1A' [routerLink]="['/customers']">Customers</a>
             <a routerLinkActive='cssNav1A' [routerLink]="['/reports']">Reports</a>
         </div>
+        <fa name="cog" id="idSettingsIcon" (click)="jsToggleMenu()"></fa>
+        <div class="cssSettingsMenu" *ngIf="bShowMenu">
+            <div>Select language:</div>
+            <div class="cssSettingsMenuOption" (click)="jsChangeLang('en')">English</div>
+            <div class="cssSettingsMenuOption" (click)="jsChangeLang('fi')">Finnish</div>
+        </div>
     </div>
 </div>
